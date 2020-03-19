@@ -14,10 +14,7 @@ class PRanking_Frontend {
     function renderReviews ($content) {
 
         // Validation
-        if (
-            !is_user_logged_in()
-            || !is_single()
-        ) {
+        if (!is_single()) {
           return $content;
         }
 
@@ -26,9 +23,12 @@ class PRanking_Frontend {
 
         ob_start();
         // Get reviews
+        $reviews = $this->Db->getPostReviews();
+        if (count($reviews))
+            require( dirname(__FILE__) . '/../templates/frontend/reviews-list.php');
 
         // Review form
-        if (!$this->Db->userReviewedPost())
+        if (is_user_logged_in() && !$this->Db->userReviewedPost())
             require( dirname(__FILE__) . '/../templates/frontend/form.php');
 
         return $content .  ob_get_clean();

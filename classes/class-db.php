@@ -31,7 +31,7 @@ class PRanking_DB {
     }
 
     function addReview($args){
-        if ($this->userReviewedPost()) {
+        if (!is_user_logged_in() || $this->userReviewedPost()) {
             return false;
         }
 
@@ -46,6 +46,20 @@ class PRanking_DB {
             $values,
             [ '%d', '%d', '%d', '%s' ]
         );
+    }
+
+    function getPostReviews ($postId = false) {
+        if (!$postId) $postId = get_the_ID();
+
+        $sql = sprintf(
+            "SELECT r.review_date, r.value, r.comment, u.user_nicename name
+            FROM %s r
+            LEFT JOIN %s u ON u.ID = r.user_id
+            WHERE r.post_id = %d
+            ORDER BY r.review_date DESC",
+            $this->tables['reviews'], $this->wpdb->prefix.'users', $postId
+        );
+        return $this->wpdb->get_results($sql);
     }
 
     // Check if the current user has already reviewed the current post
