@@ -52,7 +52,7 @@ class PRanking_DB {
         if (!$postId) $postId = get_the_ID();
 
         $sql = sprintf(
-            "SELECT r.review_date, r.value, r.comment, u.user_nicename name
+            "SELECT r.review_date, r.value, r.comment, u.display_name name
             FROM %s r
             LEFT JOIN %s u ON u.ID = r.user_id
             WHERE r.post_id = %d
