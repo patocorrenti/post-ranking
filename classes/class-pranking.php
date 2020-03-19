@@ -11,5 +11,4 @@ class PRanking {
         new PRanking_Frontend($this->Db);
     }
 
-
 }

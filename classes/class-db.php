@@ -19,6 +19,7 @@ class PRanking_DB {
             'CREATE TABLE %s (
                 id INT NOT NULL AUTO_INCREMENT
                 , post_id BIGINT(20) NOT NULL
+                , review_date DATETIME DEFAULT CURRENT_TIMESTAMP
                 , user_id BIGINT(20) NOT NULL
                 , value INT(10) NOT NULL
                 , comment TEXT NOT NULL
@@ -30,15 +31,19 @@ class PRanking_DB {
     }
 
     function addReview($args){
-        $sortedArgs = [
-            'post_id' => $args['post_id'],
-            'user_id' => $args['user_id'],
+        if ($this->userReviewedPost()) {
+            return false;
+        }
+
+        $values = [
+            'post_id' => get_the_ID(),
+            'user_id' => get_current_user_id(),
             'value' => $args['value'],
             'comment' => $args['comment']
         ];
         $this->wpdb->insert(
             $this->tables['reviews'],
-            $sortedArgs,
+            $values,
             [ '%d', '%d', '%d', '%s' ]
         );
     }
