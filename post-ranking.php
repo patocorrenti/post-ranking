@@ -25,6 +25,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 include_once( 'classes/class-db.php' );
+include_once( 'classes/class-frontend.php' );
 
 include_once( 'classes/class-pranking.php' );
 
@@ -32,6 +33,6 @@ new PRanking();
 
 // Enable Plugin
 register_activation_hook( __FILE__, function () {
-    $Db = new PRankin_DB();
+    $Db = new PRanking_DB();
     $Db->createTables();
 });

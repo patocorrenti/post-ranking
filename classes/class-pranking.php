@@ -7,8 +7,8 @@ class PRanking {
     var $Db;
 
     function PRanking () {
-        $this->Db = new PRankin_DB();
+        $this->Db = new PRanking_DB();
+        new PRanking_Frontend($this->Db);
     }
-
 
 }
