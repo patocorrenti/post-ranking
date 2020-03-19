@@ -1,0 +1,17 @@
+.prank-review_form .value {
+    display: flex;
+}
+.prank-review_form .value label {
+    cursor: pointer;
+    text-align: center;
+    padding: 10px;
+}
+.prank-review_form .value .number {
+    display: block;
+}
+.prank-review_form .value .input {
+    display: block;
+}
+.prank-review_form button {
+    margin-top: 10px;
+}

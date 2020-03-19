@@ -1,0 +1,47 @@
+.prank-star {
+    width: 20px;
+    height: 20px;
+}
+.prank-star:not(:last-child) {
+    margin-right: 5px;
+}
+
+.prank-review_totals {
+    display: flex;
+    align-items: center;
+}
+.prank-review_totals .average {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+.prank-review_totals .users {
+    font-size: .7em;
+    padding-left: 4px;
+}
+
+.prank-review_list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.prank-review_list > li {
+    padding: 0;
+    margin: 0;
+}
+
+.prank-review_list .review .value {
+    display: flex;
+}
+.prank-review_list .review .value .num {
+    display: none;
+}
+.prank-review_list .review .value .graph {
+    display: flex;
+}
+
+.prank-review_list .review .user .label {
+    display: none;
+}
+.prank-review_list .review .user .name {
+    font-weight: bold;
+}

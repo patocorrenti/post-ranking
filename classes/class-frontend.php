@@ -8,7 +8,14 @@ class PRanking_Frontend {
 
     function PRanking_Frontend ($Db) {
         $this->Db = $Db;
+        add_action( 'wp_enqueue_scripts', [$this,'enqueue_scripts']);
         add_filter('the_content', [$this, 'renderReviews']);
+    }
+
+    public function enqueue_scripts() {
+        wp_enqueue_style( 'form', plugins_url('/../assets/custom/css/form.css', __FILE__));
+        wp_enqueue_style( 'review-list', plugins_url('/../assets/custom/css/review-list.css', __FILE__));
+        // wp_enqueue_script( 'addmovie', plugins_url('/../assets/custom/js/add-movie.js', __FILE__), array('jquery'));
     }
 
     function renderReviews ($content) {
