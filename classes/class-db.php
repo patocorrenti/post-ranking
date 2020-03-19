@@ -62,6 +62,15 @@ class PRanking_DB {
         return $this->wpdb->get_results($sql);
     }
 
+    function getPostAverage ($postId = false) {
+        if (!$postId) $postId = get_the_ID();
+        $sql = sprintf(
+            'SELECT AVG(VALUE) FROM %s WHERE post_id = %d',
+            $this->tables['reviews'], $postId
+        );
+        return round(floatval($this->wpdb->get_var($sql)),2);
+    }
+
     // Check if the current user has already reviewed the current post
     function userReviewedPost () {
         $sql = sprintf (

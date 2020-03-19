@@ -1,3 +1,7 @@
+<div>
+    <span><?php _e('Calificaci&oacute;n', 'pranking') ?>:</span>
+    <span><?php echo $average ?></span>
+</div>
 <?php foreach($reviews as $review) : ?>
 <ul>
     <li>

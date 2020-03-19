@@ -24,8 +24,10 @@ class PRanking_Frontend {
         ob_start();
         // Get reviews
         $reviews = $this->Db->getPostReviews();
-        if (count($reviews))
+        if (count($reviews)) {
+            $average = $this->Db->getPostAverage();
             require( dirname(__FILE__) . '/../templates/frontend/reviews-list.php');
+        }
 
         // Review form
         if (is_user_logged_in() && !$this->Db->userReviewedPost())
