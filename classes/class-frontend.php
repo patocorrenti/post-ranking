@@ -25,7 +25,7 @@ class PRanking_Frontend {
         // Get reviews
         $reviews = $this->Db->getPostReviews();
         if (count($reviews)) {
-            $average = $this->Db->getPostAverage();
+            $reviewTotals = $this->Db->getPostAverage();
             require( dirname(__FILE__) . '/../templates/frontend/reviews-list.php');
         }
 

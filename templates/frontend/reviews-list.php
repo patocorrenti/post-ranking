@@ -1,6 +1,11 @@
 <div>
-    <span><?php _e('Calificaci&oacute;n', 'pranking') ?>:</span>
-    <span><?php echo $average ?></span>
+    <div>
+        <span><?php _e('Calificaci&oacute;n', 'pranking') ?>:</span>
+        <span><?php echo $reviewTotals['average'] ?></span>
+    </div>
+    <div>
+        (<?php echo sprintf(__('%d reviews', 'pranking'), $reviewTotals['users']) ?>)
+    </div>
 </div>
 <?php foreach($reviews as $review) : ?>
 <ul>
