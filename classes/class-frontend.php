@@ -9,7 +9,7 @@ class PRanking_Frontend {
     function PRanking_Frontend ($Db) {
         $this->Db = $Db;
         add_action( 'wp_enqueue_scripts', [$this,'enqueue_scripts']);
-        add_filter('the_content', [$this, 'renderReviews']);
+        add_filter('the_content', [$this, 'renderReviews'], 999);
     }
 
     public function enqueue_scripts() {
@@ -43,7 +43,7 @@ class PRanking_Frontend {
             require( dirname(__FILE__) . '/../templates/frontend/form.php');
 
         echo '</div>';
-        return  ob_get_clean();
+        return $content . ob_get_clean();
     }
 
     function addReview () {
