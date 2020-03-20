@@ -15,7 +15,7 @@ class PRanking_Frontend {
     public function enqueue_scripts() {
         wp_enqueue_style( 'form', plugins_url('/../assets/custom/css/form.css', __FILE__));
         wp_enqueue_style( 'review-list', plugins_url('/../assets/custom/css/review-list.css', __FILE__));
-        // wp_enqueue_script( 'addmovie', plugins_url('/../assets/custom/js/add-movie.js', __FILE__), array('jquery'));
+        wp_enqueue_script( 'post-ranking', plugins_url('/../assets/custom/js/post-ranking.js', __FILE__), array('jquery'));
     }
 
     function renderReviews ($content) {
@@ -29,6 +29,8 @@ class PRanking_Frontend {
         $this->addReview();
 
         ob_start();
+        echo '<div id="reviews">';
+
         // Get reviews
         $reviews = $this->Db->getPostReviews();
         if (count($reviews)) {
@@ -40,7 +42,8 @@ class PRanking_Frontend {
         if (is_user_logged_in() && !$this->Db->userReviewedPost())
             require( dirname(__FILE__) . '/../templates/frontend/form.php');
 
-        return $content .  ob_get_clean();
+        echo '</div>';
+        return  ob_get_clean();
     }
 
     function addReview () {
