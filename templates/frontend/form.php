@@ -1,4 +1,5 @@
-<form action="#reviews" method="post" class="prank-review_form">
+<form action="#reviews" method="post" class="prank-review_form" id="review-form">
+    <h4><?php _e('Tu calificaci&oacute;n', 'pranking') ?></h4>
     <?php wp_nonce_field( 'prank_review') ?>
     <label for="prank-comment"><?php _e('Puntaje', 'pranking') ?>:</label>
     <div class="value" id="prank-value">
