@@ -2,6 +2,11 @@
 
 if ( !defined( 'ABSPATH' ) ) exit;
 
+include_once( dirname(__FILE__) . '/./class-db.php' );
+include_once( dirname(__FILE__) . '/./class-single.php' );
+include_once( dirname(__FILE__) . '/./class-list.php' );
+include_once( dirname(__FILE__) . '/./class-helper.php' );
+
 class PRanking {
 
     var $Db;

@@ -3,6 +3,7 @@
 if ( !defined( 'ABSPATH' ) ) exit;
 
 class PRanking_DB {
+
     var $wpdb;
     var $tables = array();
 
@@ -70,7 +71,7 @@ class PRanking_DB {
         );
         $results = $this->wpdb->get_results($sql)[0];
         return [
-            'average' => self::roundAverage($results->average),
+            'average' => PRanking_Helper::roundAverage($results->average),
             'users' => $results->users
         ];
     }
@@ -90,11 +91,6 @@ class PRanking_DB {
             $this->tables['reviews']
         );
         return $this->wpdb->get_results($sql);
-    }
-
-    // Receives the average as string and returns it as 2 decimals float
-    static function roundAverage($value) {
-        return round(floatval($value),2);
     }
 
 }
