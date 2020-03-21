@@ -8,7 +8,8 @@ class PRanking {
 
     function PRanking () {
         $this->Db = new PRanking_DB();
-        new PRanking_Frontend($this->Db);
+        new PRanking_Single($this->Db);
+        new PRanking_List($this->Db);
     }
 
 }

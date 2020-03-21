@@ -32,7 +32,7 @@
                 </div>
             </header>
             <div>
-                <?php echo nl2br($review->comment) ?>
+                <?php echo nl2br(stripslashes($review->comment)) ?>
             </div>
         </article>
     </li>
