@@ -3,7 +3,7 @@
 Plugin Name: Post Ranking
 Plugin URI:
 Description: Ranquea los posts
-Version: 0.1
+Version: 0.2
 Author: Pato Correnti
 Author URI: http://patocorrenti.com
 License: GPL2
@@ -25,7 +25,8 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 include_once( 'classes/class-db.php' );
-include_once( 'classes/class-frontend.php' );
+include_once( 'classes/class-single.php' );
+include_once( 'classes/class-list.php' );
 
 include_once( 'classes/class-pranking.php' );
 

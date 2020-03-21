@@ -2,11 +2,11 @@
 
 if ( !defined( 'ABSPATH' ) ) exit;
 
-class PRanking_Frontend {
+class PRanking_Single {
 
     var $Db;
 
-    function PRanking_Frontend ($Db) {
+    function PRanking_Single ($Db) {
         $this->Db = $Db;
         add_action( 'wp_enqueue_scripts', [$this,'enqueue_scripts']);
         add_filter('the_content', [$this, 'renderReviews'], 999);

@@ -70,7 +70,7 @@ class PRanking_DB {
         );
         $results = $this->wpdb->get_results($sql)[0];
         return [
-            'average' => round(floatval($results->average),2),
+            'average' => self::roundAverage($results->average),
             'users' => $results->users
         ];
     }
@@ -82,6 +82,19 @@ class PRanking_DB {
             $this->tables['reviews'], get_the_ID(), get_current_user_id()
         );
         return $this->wpdb->get_var($sql);
+    }
+
+    function getRankingList ($args = []) {
+        $sql = sprintf (
+            "SELECT post_id, AVG(value) average FROM %s GROUP BY post_id ORDER BY review_date DESC",
+            $this->tables['reviews']
+        );
+        return $this->wpdb->get_results($sql);
+    }
+
+    // Receives the average as string and returns it as 2 decimals float
+    static function roundAverage($value) {
+        return round(floatval($value),2);
     }
 
 }
