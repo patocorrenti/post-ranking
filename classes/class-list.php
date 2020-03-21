@@ -21,7 +21,10 @@ class PRanking_List {
         // Query the post
         $rankingQuery = new WP_Query([
             'post_type' => !empty($args['post_type']) ? [$args ['post_type']] : ['post'],
+            'posts_per_page' => !empty($args['per_page']) ? (int)$args['per_page'] : get_option('posts_per_page'),
+            'paged' => !empty(get_query_var('paged')) ? (int)get_query_var('paged') : 1
         ]);
+
         ob_start();
         require( dirname(__FILE__) . '/../templates/frontend/list.php');
         return ob_get_clean();
