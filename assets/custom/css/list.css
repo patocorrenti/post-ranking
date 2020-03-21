@@ -20,7 +20,7 @@
     transition-duration: .5s;
 }
 .prank-post_list .image:hover img {
-    transform: scale(1.1) rotate(-2deg);
+    transform: scale(1.05) rotate(2deg);
     opacity: .8;
 }
 .prank-post_list .title {
