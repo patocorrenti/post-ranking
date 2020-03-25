@@ -4,19 +4,39 @@
     padding: 0;
 }
 
-
 .prank-recent-reviews .review {
     align-items: flex-start;
     display: flex;
     margin: 0;
     padding: 0;
 }
-.prank-recent-reviews .review header .image {
+.prank-recent-reviews .review .image {
     box-sizing: border-box;
-    width: 40%;
+    display: flex;
+    width: 30%;
 }
-.prank-recent-reviews .review header .data {
+.prank-recent-reviews .review .image a {
+    display: flex;
+    text-decoration: none;
+}
+.prank-recent-reviews .review .data {
     box-sizing: border-box;
+    padding-left: 10px;
     text-align: left;
-    width: 60%;
+    width: 70%;
+    white-space: normal;
+}
+.prank-recent-reviews .review .title,
+.prank-recent-reviews .review .user,
+.prank-recent-reviews .review .value {
+    padding-bottom: 5px;
+}
+.prank-recent-reviews .review .value .num {
+    display: none;
+}
+.prank-recent-reviews .review .value .graph {
+    display: flex;
+}
+.prank-recent-reviews .review .value .graph .prank-star.empty {
+    opacity: .4;
 }
