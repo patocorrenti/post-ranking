@@ -85,10 +85,28 @@ class PRanking_DB {
         return $this->wpdb->get_var($sql);
     }
 
-    function getRankingList ($args = []) {
+    function getReviews ($args = []) {
+        // Process args
+        $sqlArgs = [
+            'limit' => !empty($args['limit']) ? 'LIMIT ' . (int)$args['limit'] : '',
+            'post_type' => !empty($args['post_type']) ? sprintf('WHERE p.post_type = "%s"', $args['post_type']) : '',
+        ];
+
+        $postsTable = $this->wpdb->prefix . 'posts';
+        $usersTable = $this->wpdb->prefix . 'users';
         $sql = sprintf (
-            "SELECT post_id, AVG(value) average FROM %s GROUP BY post_id ORDER BY review_date DESC",
-            $this->tables['reviews']
+            '
+            SELECT r.post_id, AVG(r.value) average
+            FROM %s AS r
+            LEFT JOIN %s AS p ON r.post_id = p.ID
+            LEFT JOIN %s AS u ON r.post_id = p.ID
+            %s
+            GROUP BY post_id
+            ORDER BY review_date DESC
+            %s
+            ',
+            $this->tables['reviews'], $postsTable, $usersTable, //tables
+            $sqlArgs['post_type'],$sqlArgs['limit'] //args
         );
         return $this->wpdb->get_results($sql);
     }
