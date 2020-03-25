@@ -20,6 +20,7 @@
     <?php endwhile ?>
     </ul>
 <?php endif ?>
+<?php if(empty($args['no_pagination'])) : ?>
 <div class="pagination">
     <?php
         echo paginate_links( array(
@@ -38,3 +39,4 @@
         ) );
     ?>
 </div>
+<?php endif ?>
