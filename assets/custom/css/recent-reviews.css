@@ -1,0 +1,22 @@
+.prank-recent-reviews {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+.prank-recent-reviews .review {
+    align-items: flex-start;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+.prank-recent-reviews .review header .image {
+    box-sizing: border-box;
+    width: 40%;
+}
+.prank-recent-reviews .review header .data {
+    box-sizing: border-box;
+    text-align: left;
+    width: 60%;
+}

@@ -96,12 +96,11 @@ class PRanking_DB {
         $usersTable = $this->wpdb->prefix . 'users';
         $sql = sprintf (
             '
-            SELECT r.post_id, AVG(r.value) average
+            SELECT r.value, r.comment, u.display_name name, r.post_id, p.post_title, p.guid permalink
             FROM %s AS r
             LEFT JOIN %s AS p ON r.post_id = p.ID
             LEFT JOIN %s AS u ON r.post_id = p.ID
             %s
-            GROUP BY post_id
             ORDER BY review_date DESC
             %s
             ',
