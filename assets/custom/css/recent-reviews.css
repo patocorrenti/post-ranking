@@ -1,4 +1,6 @@
 .prank-recent-reviews {
+    display: flex;
+    flex-wrap: wrap;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -7,8 +9,9 @@
 .prank-recent-reviews .review {
     align-items: flex-start;
     display: flex;
-    margin: 0;
+    margin: 0 0 15px;
     padding: 0;
+    width: 100%;
 }
 .prank-recent-reviews .review .image {
     box-sizing: border-box;
@@ -26,6 +29,9 @@
     width: 70%;
     white-space: normal;
 }
+.prank-recent-reviews .review .user {
+    font-weight: bold;
+}
 .prank-recent-reviews .review .title,
 .prank-recent-reviews .review .user,
 .prank-recent-reviews .review .value {
@@ -38,5 +44,5 @@
     display: flex;
 }
 .prank-recent-reviews .review .value .graph .prank-star.empty {
-    opacity: .4;
+    opacity: .2;
 }

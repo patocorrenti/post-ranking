@@ -1,6 +1,6 @@
-<?php if (count($reviews)) : ?>
+<?php if (count($recentReviews)) : ?>
     <ul class="prank-recent-reviews">
-        <?php foreach($reviews as $review) : ?>
+        <?php foreach($recentReviews as $review) : ?>
             <li class="review">
                 <div class="image">
                     <a href="<?php echo $review->permalink ?>">

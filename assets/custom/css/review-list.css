@@ -44,7 +44,7 @@
     margin-bottom: 5px;
 }
 .prank-review_list .review .value .prank-star.empty {
-    opacity: .4;
+    opacity: .2;
 }
 .prank-review_list .review .value .num {
     display: none;

@@ -17,11 +17,9 @@ class PRanking_RecentReviews {
     }
 
     public function shortcode_recent_reviews ($args=[]) {
-        $reviews = $this->Db->getReviews($args);
+        $recentReviews = $this->Db->getReviews($args);
         ob_start();
-        echo '<pre>';
         require( dirname(__FILE__) . '/../templates/frontend/recent-reviews.php');
-        echo '</pre>';
         return ob_get_clean();
     }
 }

@@ -99,7 +99,7 @@ class PRanking_DB {
             SELECT r.value, r.comment, u.display_name name, r.post_id, p.post_title, p.guid permalink
             FROM %s AS r
             LEFT JOIN %s AS p ON r.post_id = p.ID
-            LEFT JOIN %s AS u ON r.post_id = p.ID
+            LEFT JOIN %s AS u ON r.user_id = u.ID
             %s
             ORDER BY review_date DESC
             %s
@@ -107,6 +107,7 @@ class PRanking_DB {
             $this->tables['reviews'], $postsTable, $usersTable, //tables
             $sqlArgs['post_type'],$sqlArgs['limit'] //args
         );
+
         return $this->wpdb->get_results($sql);
     }
 
